@@ -15,8 +15,7 @@ logging.getLogger('PIL').setLevel(logging.ERROR)
 
 
 def display_settings(device, args) -> str:
-    """
-    Display a short summary of the settings.
+    """Display a short summary of the settings.
 
     :rtype: str
     """
@@ -38,9 +37,7 @@ def display_settings(device, args) -> str:
 
 
 def get_device(actual_args=None) -> Any | None:
-    """
-    Create device from command-line arguments and return it.
-    """
+    """Create device from command-line arguments and return it."""
     if actual_args is None:
         actual_args = sys.argv[1:]
     parser = cmdline.create_parser(description='luma.examples arguments')
