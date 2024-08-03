@@ -1,36 +1,22 @@
-# Compiler for C and C++
-CC = gcc
-CXX = g++
+CXX       := g++
+CXX_FLAGS := -Wall -Wextra -std=c++17 -ggdb
 
-# Compiler flags for C and C++
-CFLAGS = -Iinclude
-CXXFLAGS = -Iinclude
+BIN     := bin
+SRC     := src
+INCLUDE := include
+LIB     := lib
+LIBRARIES   := 
+EXECUTABLE  := main
 
-# Linking flags (none in this simple example)
-LDFLAGS = 
+build:
+	@echo "🚧 Building..."
+	$(CXX) $(SRC)/*.cpp -o $(BIN)/$(EXECUTABLE)
 
-# All object files
-C_OBJS = src/my_c_module.o
-CXX_OBJS = src/main.o
+run:
+	@clear
+	@echo "🚀 Executing..."
+	$(BIN)/$(EXECUTABLE)
 
-# The executable file
-EXEC = my_app
-
-# Rule to build the final executable
-all: $(EXEC)
-
-# Rule to link the final executable
-$(EXEC): $(C_OBJS) $(CXX_OBJS)
-	$(CXX) $(C_OBJS) $(CXX_OBJS) -o $(EXEC) $(LDFLAGS)
-
-# Rule to build C object files
-src/%.o: src/%.c
-	$(CC) $(CFLAGS) -c $< -o $@
-
-# Rule to build C++ object files
-src/%.o: src/%.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
-
-# Clean up build files
 clean:
-	rm -f src/*.o $(EXEC)
+	@echo "🧹 Clearing..."
+	-rm $(BIN)/*
