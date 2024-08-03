@@ -29,3 +29,12 @@ class MainMenu:
                                 (10 * idx) + 10 + 2 * margin),
                             outline=hightlight_selected
                         )
+
+    def action(self, **kwargs) -> None:
+        """Method to handle key presses"""
+        if (
+            kwargs["app"] is None or
+            kwargs["route"] is None or
+            kwargs["key"] is None
+        ):
+            raise Exception("Missing arguments in Intro().action")

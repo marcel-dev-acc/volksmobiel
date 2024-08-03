@@ -4,7 +4,6 @@ from luma.core.render import canvas
 from demo_opts import get_device
 
 import env
-import constants
 import utils
 
 from apps.routes import Routes
@@ -78,7 +77,6 @@ class App:
         #             if self.route == Routes().calculator:
         #                 self.active_option = 0
         #                 self.options = Calculator().options
-
 
 
     def loop_fn(self):
